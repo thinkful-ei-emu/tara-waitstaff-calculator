@@ -6,6 +6,9 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
     <link rel="stylesheet" href="index.css">
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/cuid/1.3.8/browser-cuid.min.js"></script>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript" src="index.js"></script>
 </head>
 <body>
     <h1>Waitstaff calculator!!!</h1>
@@ -18,18 +21,16 @@
             <input type="text" name="tax-percentage-entry" class="js-tax-percentage-entry" placeholder="8.25">
             <label for="tip-percentage-entry">Tip percentage:</label>
             <input type="text" name="tip-percentage-entry" class ="js-tip-percentage-entry" placeholder="18%">
-            <button type="submit">Submit</button>
+            <button type="submit" class = "js-submit-button">Submit</button>
             <button type="reset">reset</button>
         </form>
     </div>
-    <div>
+    <div class = "js-customer-charges">
         <h2>Customer Charges</h2>
     </div>
-    <div>
+    <div class = "js-earnings-info">
         <h2>My Earnings Info</h2>
     </div>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/cuid/1.3.8/browser-cuid.min.js"></script>
-    <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-    <script type="text/javascript" src="index.js"></script>
+
 </body>
 </html>
