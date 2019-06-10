@@ -34,20 +34,24 @@ function generateTipsElement() {
 
 function renderWaitStaffCalculator(meal) {
     console.log("We're rendering the calculator!");
-    ${'.js-customer-charges'}.html(generateMealElement(meal));
-    ${'.js-earnings-info'}.html(generateTipsElement());
+    $('.js-customer-charges').html(generateMealElement(meal));
+    $('.js-earnings-info').html(generateTipsElement());
 }
 
 function handleSubmit() {
-  ${'.js-submit-button'}.submit(function(event) {
+  $('#enter-meal-details').submit(function(event) {
     event.preventDefault();
     console.log("We're handling the submit!");
-    const price = ${'.js-meal-price-entry'}.val();
-    const tax = ${'.js-tax-percentage.entry'}.val() / 100;
-    const tip = ${'.js-tip-percentage-entry'}.val() / 100;
-    ${'.js-meal-price-entry'}.val('');
-    ${'.js-tax-percentage.entry'}.val('');
-    ${'.js-tip-percentage-entry'}.val('');
+    const price = $('.js-meal-price-entry').val();
+    console.log($('.js-tax-percentage-entry').val());
+    const tax = $('.js-tax-percentage-entry').val() / 100;
+    const tip = $('.js-tip-percentage-entry').val() / 100;
+    $('.js-meal-price-entry').val('');
+    console.log(price);
+    console.log(tax);
+    console.log(tip);
+    $('.js-tax-percentage.entry').val('');
+    $('.js-tip-percentage-entry').val('');
     const newMeal = addMeal(price, tax, tip);
     renderWaitStaffCalculator(newMeal);
     });
@@ -56,15 +60,17 @@ function handleSubmit() {
 function addMeal(mealPrice, mealTax, mealTip) {
     console.log("We're adding the meal!");
     STORE.mealCount += 1;
-    STORE.totalTips += calculateTip(mealTip);
     const newMeal = {id: STORE.mealCount, price: mealPrice, tax: mealTax, tip: mealTip};
     STORE.meals.push(newMeal);
+    STORE.totalTips += calculateTip(newMeal);
     return newMeal;
 }
 
 function calculateTip(meal) {
     console.log("We're calculating tip!");
-    return meal.price * (1+meal.tip);
+    console.log(meal.price);
+    console.log(meal.tip);
+    return meal.price * (1 + meal.tip);
 }
 
 function calculateTax(meal) {
